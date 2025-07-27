@@ -1,0 +1,112 @@
+/* Tailwind Core */
+@import 'tailwindcss';
+
+/* ReUI Configs */
+@import './config.reui.css';
+
+/** Global Styles **/
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  *:focus-visible {
+    @apply outline-ring rounded-xs shadow-none outline-2 outline-offset-3 transition-none!;
+  }
+
+  /* Remove extra spaces */
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Force full width */
+  main, .main-content {
+    width: 100% !important;
+    max-width: none !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Meikannan Components  */
+@import './components/image-input.css';
+@import './components/apexcharts.css';
+@import './components/leaflet.css';
+@import './components/rating.css';
+@import './components/image-input.css';
+@import './components/scrollable.css';
+
+/* Demos */
+@import './demos/demo1.css';
+
+/** Dark/Light Theme Variant **/
+@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:not(.dark *));
+
+/* Mobile sidebar toggle */
+body.sidebar-open .sidebar-mobile {
+  transform: translateX(0) !important;
+}
+
+body.sidebar-open .sidebar-overlay {
+  display: block !important;
+}
+
+/* Sidebar mobile styles */
+@media (max-width: 1023px) {
+  .sidebar-mobile {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  body.sidebar-open .sidebar-mobile {
+    transform: translateX(0);
+  }
+  
+  .sidebar-overlay {
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+/* Remove extra spaces */
+.wrapper, .header, .sidebar {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.sidebar {
+  flex-shrink: 0;
+}
+
+/* Chart full width */
+.recharts-wrapper {
+  width: 100% !important;
+  max-width: none !important;
+}
